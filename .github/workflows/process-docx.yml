@@ -22,15 +22,15 @@ jobs:
         with:
           python-version: '3.13'
 
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install python-docx
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install python-docx
 
-    - name: Debug: List files in legal_docs
-      run: |
-        echo "Files in legal_docs:"
-        ls -la legal_docs/
+      - name: Debug: List files in legal_docs
+        run: |
+          echo "Files in legal_docs:"
+          ls -la legal_docs/
 
       - name: Run docx cleaner
         run: python convert_docx_to_txt.py
