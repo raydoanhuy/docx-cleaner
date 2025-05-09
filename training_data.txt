@@ -357,6 +357,13 @@ Yêu cầu tuân thủ pháp luật doanh nghiệp
 3. Công ty phải đảm bảo không vi phạm quy định về bảo vệ dữ liệu cá nhân theo Nghị định 13/2023/[Tên Khách Hàng]-[Tên Khách Hàng].
 Người phụ trách: Nguyễn Thị[Tên Khách Hàng], [Tên Khách Hàng]: [Số CMND], điện thoại: [Số Điện Thoại].
 
+Câu hỏi và trả lời pháp lý
+Câu hỏi 1: Có cần ký hợp đồng bảo mật ([Tên Khách Hàng]) với đối tác nước ngoài không?
+Trả lời: Có, nên ký[Tên Khách Hàng]để bảo vệ thông tin kinh doanh nhạy cảm.
+Câu hỏi 2: Thời hạn nộp báo cáo thuế là khi nào?
+Trả lời: Trước ngày 30/3 cho doanh nghiệp nhỏ, 30/6 cho doanh nghiệp lớn.
+Người tư vấn: Lê Văn[Tên Khách Hàng], email: [Email]
+
 Hợp đồng thuê văn phòng
 Bên[Tên Khách Hàng]: Công ty[Tên Khách Hàng], mã số thuế: [Số Điện Thoại]
 Bên[Tên Khách Hàng]: Ông Trần Văn[Tên Khách Hàng], [Tên Khách Hàng]: [Số CMND]
