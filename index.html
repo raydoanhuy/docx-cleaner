@@ -62,4 +62,170 @@
       margin-top: 10px;
       font-size: 14px;
       color: #5e564f;
-      text
+      text-align: center;
+      min-height: 20px;
+    }
+    .token-container {
+      margin-bottom: 20px;
+      width: 100%;
+      max-width: 600px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    #tokenInput {
+      flex: 1;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+    #saveTokenBtn {
+      background: #5e564f;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    #saveTokenBtn:hover {
+      background: #736963;
+    }
+  </style>
+</head>
+<body>
+  <h1>Legal Docx Uploader</h1>
+  <div class="token-container">
+    <input id="tokenInput" type="password" placeholder="Nhập GitHub Personal Access Token">
+    <button id="saveTokenBtn" onclick="saveToken()">Lưu Token</button>
+  </div>
+  <div class="upload-container" id="uploadContainer" style="display: none;">
+    <label class="upload-btn" for="file1">Upload Hợp đồng 1</label>
+    <input id="file1" class="upload-input" type="file" accept=".docx" onchange="uploadFile(this, 1)">
+    <label class="upload-btn" for="file2">Upload Hợp đồng 2</label>
+    <input id="file2" class="upload-input" type="file" accept=".docx" onchange="uploadFile(this, 2)">
+    <label class="upload-btn" for="file3">Upload Hợp đồng 3</label>
+    <input id="file3" class="upload-input" type="file" accept=".docx" onchange="uploadFile(this, 3)">
+    <label class="upload-btn" for="file4">Upload Hợp đồng 4</label>
+    <input id="file4" class="upload-input" type="file" accept=".docx" onchange="uploadFile(this, 4)">
+    <label class="upload-btn" for="file5">Upload Hợp đồng 5</label>
+    <input id="file5" class="upload-input" type="file" accept=".docx" onchange="uploadFile(this, 5)">
+  </div>
+  <div id="status"></div>
+  <button id="downloadBtn" onclick="downloadResult()">Download training_data.txt</button>
+
+  <script>
+    const REPO = "raydoanhuy/docx-cleaner"; // Thay bằng username/repo
+    let GITHUB_TOKEN = localStorage.getItem("github_token") || "";
+    let uploadedCount = 0;
+
+    function saveToken() {
+      const tokenInput = document.getElementById("tokenInput").value.trim();
+      const statusEl = document.getElementById("status");
+      if (!tokenInput) {
+        statusEl.textContent = "Vui lòng nhập token!";
+        return;
+      }
+      GITHUB_TOKEN = tokenInput;
+      localStorage.setItem("github_token", tokenInput);
+      document.getElementById("uploadContainer").style.display = "block";
+      document.getElementById("tokenInput").value = "";
+      statusEl.textContent = "Token đã được lưu! Bắt đầu upload hợp đồng.";
+    }
+
+    if (GITHUB_TOKEN) {
+      document.getElementById("uploadContainer").style.display = "block";
+    }
+
+    async function uploadFile(input, index) {
+      const file = input.files[0];
+      const statusEl = document.getElementById("status");
+      if (!GITHUB_TOKEN) {
+        statusEl.textContent = "Vui lòng lưu token trước khi upload!";
+        return;
+      }
+      if (!file || !file.name.endsWith(".docx")) {
+        statusEl.textContent = `Hợp đồng ${index}: Vui lòng chọn file .docx!`;
+        return;
+      }
+
+      statusEl.textContent = `Đang upload Hợp đồng ${index}...`;
+      try {
+        const reader = new FileReader();
+        reader.onload = async function(e) {
+          const content = e.target.result.split(',')[1];
+          const response = await fetch(`https://api.github.com/repos/${REPO}/contents/legal_docs/${file.name}`, {
+            method: "PUT",
+            headers: {
+              "Authorization": `Bearer ${GITHUB_TOKEN}`,
+              "Accept": "application/vnd.github.v3+json"
+            },
+            body: JSON.stringify({
+              message: `Upload ${file.name}`,
+              content: content,
+              branch: "main"
+            })
+          });
+          if (!response.ok) throw new Error(`Upload thất bại: ${await response.text()}`);
+          uploadedCount++;
+          statusEl.textContent = `Hợp đồng ${index} đã upload! (${uploadedCount}/5) Đang xử lý...`;
+          if (uploadedCount === 1) checkWorkflowStatus();
+        };
+        reader.readAsDataURL(file);
+      } catch (error) {
+        statusEl.textContent = `Lỗi upload Hợp đồng ${index}: ${error.message}`;
+      }
+    }
+
+    async function checkWorkflowStatus() {
+      const statusEl = document.getElementById("status");
+      try {
+        const response = await fetch(`https://api.github.com/repos/${REPO}/actions/runs`, {
+          headers: {
+            "Authorization": `Bearer ${GITHUB_TOKEN}`,
+            "Accept": "application/vnd.github.v3+json"
+          }
+        });
+        const data = await response.json();
+        const latestRun = data.workflow_runs.find(run => run.name === "Process Docx Files");
+        if (latestRun && latestRun.status === "completed" && latestRun.conclusion === "success") {
+          document.getElementById("downloadBtn").style.display = "block";
+          statusEl.textContent = "Xử lý hoàn tất! Nhấn Download để tải kết quả.";
+          uploadedCount = 0;
+        } else {
+          statusEl.textContent = `Đang xử lý (${uploadedCount}/5), vui lòng chờ...`;
+          setTimeout(checkWorkflowStatus, 5000);
+        }
+      } catch (error) {
+        statusEl.textContent = `Lỗi kiểm tra trạng thái: ${error.message}`;
+      }
+    }
+
+    async function downloadResult() {
+      const statusEl = document.getElementById("status");
+      try {
+        const response = await fetch(`https://api.github.com/repos/${REPO}/contents/training_data.txt`, {
+          headers: {
+            "Authorization": `Bearer ${GITHUB_TOKEN}`,
+            "Accept": "application/vnd.github.v3+json"
+          }
+        });
+        if (!response.ok) throw new Error("Không tìm thấy training_data.txt!");
+        const data = await response.json();
+        const content = atob(data.content);
+        const blob = new Blob([content], { type: "text/plain" });
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "training_data.txt";
+        a.click();
+        window.URL.revokeObjectURL(url);
+        statusEl.textContent = "Đã tải training_data.txt!";
+      } catch (error) {
+        statusEl.textContent = `Lỗi tải file: ${error.message}`;
+      }
+    }
+  </script>
+</body>
+</html>
