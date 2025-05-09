@@ -14,18 +14,6 @@ steps:
             python -m pip install --upgrade pip
             pip install python-docx
         
-        - name: Debug: List files in legal_docs
-          run: |
-          echo "Current working directory:"
-          pwd
-          echo "Files in $GITHUB_WORKSPACE:"
-          ls -la $GITHUB_WORKSPACE
-          echo "Files in legal_docs:"
-          if [ -d "$GITHUB_WORKSPACE/legal_docs" ]; then
-            ls -la "$GITHUB_WORKSPACE/legal_docs"
-          else
-            echo "Directory $GITHUB_WORKSPACE/legal_docs/ does not exist"
-          fi
         - name: Run docx cleaner
           run: python convert_docx_to_txt.py
 
