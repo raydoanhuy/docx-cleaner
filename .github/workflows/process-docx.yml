@@ -1,73 +1,60 @@
-name: Process Docx Files
+steps:
+  - name: Checkout repository
+    uses: actions/checkout@v4
+    with:
+      fetch-depth: 0 # Đảm bảo lấy toàn bộ lịch sử
 
-on:
-  push:
-    paths:
-      - 'legal_docs/**'
+  - name: Set up Python
+    uses: actions/setup-python@v5
+    with:
+      python-version: '3.13'
 
-jobs:
-  process-docx:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
+  - name: Install dependencies
+    run: |
+      python -m pip install --upgrade pip
+      pip install python-docx
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0 # Đảm bảo lấy toàn bộ lịch sử
+  - name: Debug: List files in legal_docs
+    run: |
+      echo "Current working directory:"
+      pwd
+      echo "Files in $GITHUB_WORKSPACE:"
+      ls -la $GITHUB_WORKSPACE
+      echo "Files in legal_docs:"
+      if [ -d "$GITHUB_WORKSPACE/legal_docs" ]; then
+        ls -la "$GITHUB_WORKSPACE/legal_docs"
+      else
+        echo "Directory $GITHUB_WORKSPACE/legal_docs/ does not exist"
+      fi
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.13'
+  - name: Run docx cleaner
+    run: python convert_docx_to_txt.py
 
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install python-docx
+  - name: Debug: Check training_data.txt
+    run: |
+      echo "Checking training_data.txt:"
+      if [ -f training_data.txt ]; then
+        echo "training_data.txt exists"
+        cat training_data.txt
+      else
+        echo "training_data.txt not found"
+        exit 1
+      fi
 
-      - name: Debug: List files in legal_docs
-        run: |
-          echo "Current working directory:"
-          pwd
-          echo "Files in $GITHUB_WORKSPACE:"
-          ls -la $GITHUB_WORKSPACE
-          echo "Files in legal_docs:"
-          if [ -d "$GITHUB_WORKSPACE/legal_docs" ]; then
-            ls -la "$GITHUB_WORKSPACE/legal_docs"
-          else
-            echo "Directory $GITHUB_WORKSPACE/legal_docs/ does not exist"
-          fi
+  - name: Debug: Check Git config
+    run: |
+      echo "Git remote URL:"
+      git remote -v
+      echo "Git user:"
+      git config --get user.name
+      git config --get user.email
 
-      - name: Run docx cleaner
-        run: python convert_docx_to_txt.py
-
-      - name: Debug: Check training_data.txt
-        run: |
-          echo "Checking training_data.txt:"
-          if [ -f training_data.txt ]; then
-            echo "training_data.txt exists"
-            cat training_data.txt
-          else
-            echo "training_data.txt not found"
-            exit 1
-          fi
-
-      - name: Debug: Check Git config
-        run: |
-          echo "Git remote URL:"
-          git remote -v
-          echo "Git user:"
-          git config --get user.name
-          git config --get user.email
-
-      - name: Commit and push training_data.txt
-        run: |
-          git config user.name "GitHub Actions Bot"
-          git config user.email "actions@github.com"
-          git add training_data.txt
-          git commit -m "Update training_data.txt" || echo "No changes to commit"
-          git push origin main
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  - name: Commit and push training_data.txt
+    run: |
+      git config user.name "GitHub Actions Bot"
+      git config user.email "actions@github.com"
+      git add training_data.txt
+      git commit -m "Update training_data.txt" || echo "No changes to commit"
+      git push origin main
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
