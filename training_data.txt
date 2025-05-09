@@ -357,6 +357,12 @@ Yêu cầu tuân thủ pháp luật doanh nghiệp
 3. Công ty phải đảm bảo không vi phạm quy định về bảo vệ dữ liệu cá nhân theo Nghị định 13/2023/[Tên Khách Hàng]-[Tên Khách Hàng].
 Người phụ trách: Nguyễn Thị[Tên Khách Hàng], [Tên Khách Hàng]: [Số CMND], điện thoại: [Số Điện Thoại].
 
+Yêu cầu tuân thủ pháp luật doanh nghiệp
+1. Tất cả nhân viên phải tuân thủ quy định của Luật Doanh nghiệp 2020.
+2. Báo cáo tài chính cần được nộp đúng hạn trước ngày 30/3 hàng năm.
+3. Công ty phải đảm bảo không vi phạm quy định về bảo vệ dữ liệu cá nhân theo Nghị định 13/2023/[Tên Khách Hàng]-[Tên Khách Hàng].
+Người phụ trách: Nguyễn Thị[Tên Khách Hàng], [Tên Khách Hàng]: [Số CMND], điện thoại: [Số Điện Thoại].
+
 Câu hỏi và trả lời pháp lý
 Câu hỏi 1: Có cần ký hợp đồng bảo mật ([Tên Khách Hàng]) với đối tác nước ngoài không?
 Trả lời: Có, nên ký[Tên Khách Hàng]để bảo vệ thông tin kinh doanh nhạy cảm.
