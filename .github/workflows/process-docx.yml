@@ -14,6 +14,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Đảm bảo lấy toàn bộ lịch sử
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -27,11 +29,15 @@ jobs:
 
       - name: Debug: List files in legal_docs
         run: |
+          echo "Current working directory:"
+          pwd
+          echo "Files in $GITHUB_WORKSPACE:"
+          ls -la $GITHUB_WORKSPACE
           echo "Files in legal_docs:"
-          if [ -d legal_docs ]; then
-            ls -la legal_docs/
+          if [ -d "$GITHUB_WORKSPACE/legal_docs" ]; then
+            ls -la "$GITHUB_WORKSPACE/legal_docs"
           else
-            echo "Directory legal_docs/ does not exist"
+            echo "Directory $GITHUB_WORKSPACE/legal_docs/ does not exist"
           fi
 
       - name: Run docx cleaner
