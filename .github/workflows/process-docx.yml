@@ -63,3 +63,10 @@ jobs:
           git push origin main
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
+- name: Commit and push training data
+  run: |
+    git config --global user.name 'github-actions'
+    git config --global user.email 'github-actions@github.com'
+    git add training_data.txt
+    git commit -m "Add training data"
+    git push
