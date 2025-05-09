@@ -31,18 +31,18 @@ jobs:
         run: python convert_docx_to_txt.py
 
 name: Process Docx Files
-        run: |
-          echo "Checking legal_docs/training_data.txt:"
-          if [ -f legal_docs/training_data.txt ]; then
-            echo "training_data.txt exists"
-          else
-            echo "training_data.txt not found"
-            exit 1
-          fi
+run: |
+echo "Checking legal_docs/training_data.txt:"
+if [ -f legal_docs/training_data.txt ]; then
+echo "training_data.txt exists"
+else
+echo "training_data.txt not found"
+exit 1
+fi
 
-      - name: Commit and push training_data.txt
-        run: |
-          git config user.name "GitHub Actions Bot"
+- name: Commit and push training_data.txt
+run: |
+git config user.name "GitHub Actions Bot"
           git config user.email "actions@github.com"
           git add legal_docs/training_data.txt
           git commit -m "Update legal_docs/training_data.txt" || echo "No changes to commit"
