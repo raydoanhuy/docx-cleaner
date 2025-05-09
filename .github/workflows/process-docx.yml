@@ -30,7 +30,7 @@ jobs:
       - name: Run docx cleaner
         run: python convert_docx_to_txt.py
 
-      - name: Debug: Check training_data.txt
+name: Process Docx Files
         run: |
           echo "Checking legal_docs/training_data.txt:"
           if [ -f legal_docs/training_data.txt ]; then
