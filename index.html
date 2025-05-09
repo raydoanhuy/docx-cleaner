@@ -298,12 +298,16 @@
         });
         if (!response.ok) {
           const errorData = await response.json();
-          throw new Error(`Không tải được training_data.txt: ${errorData.message || response.statusText}`);
+          throw new Error(`Không tải được training_data.txt: ${errorData.message ||
+ response.statusText}`);
         }
         const data = await response.json();
-        const content = atob(data.content);
+        // Giải mã base64 thành chuỗi Unicode chính xác
+        const content = decodeURIComponent(escape(atob(data.content)));
         console.log("Nội dung sau khi giải mã:", content); // Kiểm tra nội dung
-        const blob = new Blob([content], { type: "text/plain;charset=utf-8" }); // Thêm charset=utf-8
+        // Thêm BOM để đảm bảo tương thích với Notepad
+        const BOM = '\uFEFF';
+        const blob = new Blob([BOM + content], { type: "text/plain;charset=utf-8" });
         const url = window.URL.createObjectURL(blob);
         const a = document.createElement("a");
         a.href = url;
