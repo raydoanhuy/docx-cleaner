@@ -15,7 +15,7 @@ steps:
             pip install python-docx
             
         - name: Debug: List files in legal_docs
-        run: |
+          run: |
           echo "Current working directory:"
           pwd
           echo "Files in $GITHUB_WORKSPACE:"
