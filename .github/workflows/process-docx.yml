@@ -28,7 +28,7 @@ jobs:
           ls -la legal_docs/
       - name: Run docx cleaner
         run: python convert_docx_to_txt.py
-      - name: Debug: Check training_data.txt
+      - name:Debug: Check training_data.txt
         run: |
           echo "Checking training_data.txt:"
           if [ -f training_data.txt ]; then
