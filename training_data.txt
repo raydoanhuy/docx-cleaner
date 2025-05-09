@@ -393,3 +393,11 @@ Bên[Tên Khách Hàng]: Ông Trần Văn[Tên Khách Hàng], [Tên Khách Hàng
 Thời hạn thuê: 2 năm, từ 1/1/2023 đến 31/12/2024
 Giá thuê: 20 triệu[Tên Khách Hàng]/tháng
 Điều khoản: Bên[Tên Khách Hàng]phải thanh toán tiền thuê trước ngày 5 hàng tháng.
+
+Hợp đồng thuê văn phòng
+Bên[Tên Khách Hàng]: Công ty[Tên Khách Hàng], mã số thuế: [Số Điện Thoại]
+Bên[Tên Khách Hàng]: Ông Trần Văn[Tên Khách Hàng], [Tên Khách Hàng]: [Số CMND]
+Địa điểm: Tòa nhà[Tên Khách Hàng], 123 Đường Láng, Hà Nội
+Thời hạn thuê: 2 năm, từ 1/1/2023 đến 31/12/2024
+Giá thuê: 20 triệu[Tên Khách Hàng]/tháng
+Điều khoản: Bên[Tên Khách Hàng]phải thanh toán tiền thuê trước ngày 5 hàng tháng.
