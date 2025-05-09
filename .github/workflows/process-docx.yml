@@ -21,34 +21,6 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.13'
- name: Process Docx Files
-
-on:
-  push:
-    paths:
-name: Process Docx Files
-
-on:
-  push:
-    paths:
-      - 'legal_docs/**'
-
-jobs:
-  process-docx:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.PAT }}
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.13'
 
       - name: Install dependencies
         run: |
@@ -91,4 +63,3 @@ jobs:
           git push origin main
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
-
