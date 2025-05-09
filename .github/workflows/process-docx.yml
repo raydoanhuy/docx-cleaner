@@ -38,7 +38,7 @@ jobs:
             echo "training_data.txt not found"
             exit 1
           fi
-      - name: Debug: Check Git config
+      - name:Debug: Check Git config
         run: |
           echo "Git remote URL:"
           git remote -v
