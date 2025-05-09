@@ -36,6 +36,12 @@ Thời hạn thuê: 2 năm, từ 1/1/2023 đến 31/12/2024
 Giá thuê: 35 triệu[Tên Khách Hàng]/tháng
 Điều khoản: Bên[Tên Khách Hàng]phải thanh toán tiền thuê trước ngày 10 hàng tháng.
 
+Yêu cầu tuân thủ pháp luật doanh nghiệp
+1. Tất cả nhân viên phải tuân thủ quy định của Luật Doanh nghiệp 2020.
+2. Báo cáo tài chính cần được nộp đúng hạn trước ngày 30/3 hàng năm.
+3. Công ty phải đảm bảo không vi phạm quy định về bảo vệ dữ liệu cá nhân theo Nghị định 13/2023/[Tên Khách Hàng]-[Tên Khách Hàng].
+Người phụ trách: Nguyễn Thị[Tên Khách Hàng], [Tên Khách Hàng]: [Số CMND], điện thoại: [Số Điện Thoại].
+
 [Tên Khách Hàng]
 Date: 06.05.2025
 Tôi hiểu rằng bạn đang hoạt động trong ngành pháp lý (legal), chuyên tư vấn thường xuyên cho các doanh nghiệp, và bạn muốn xây dựng một[Tên Khách Hàng]agent riêng cho từng doanh nghiệp. Mỗi[Tên Khách Hàng]agent sẽ được huấn luyện bằng dữ liệu của doanh nghiệp đó kết hợp với dữ liệu từ công ty luật (lawfirm) của bạn, và bạn muốn hoàn thành việc này trong vòng 1 tuần. Dựa trên bối cảnh ngành pháp lý và các yêu cầu của bạn, tôi sẽ hướng dẫn chi tiết, cụ thể từng bước để bạn có thể thực hiện, như "cầm tay chỉ việc". Vì thời gian gấp rút (1 tuần), tôi sẽ tập trung vào giải pháp nhanh, khả thi, và có thể triển khai ngay.
