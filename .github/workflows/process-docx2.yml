@@ -3,7 +3,7 @@ name: Process Docx Files
 on:
   push:
     paths:
-      - 'legal_docs/**'
+      - legal_docs/**
 jobs:
   process-docx:
     runs-on: ubuntu-latest
@@ -17,7 +17,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.13'
+          python-version: "3.13"
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
@@ -46,11 +46,15 @@ jobs:
           git config --get user.name
           git config --get user.email
       - name: Commit and push training_data.txt
-        run: |
+        run: >
           git config user.name "GitHub Actions Bot"
+
           git config user.email "actions@github.com"
+
           git add training_data.txt
+
           git commit -m "Update training_data.txt" || echo "No changes to commit"
+
           git push origin main
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
