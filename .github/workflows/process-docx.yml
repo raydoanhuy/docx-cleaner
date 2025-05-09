@@ -7,8 +7,62 @@ on:
 jobs:
   process-docx:
     runs-on: ubuntu-latest
+    permissions:a---
+name: Process Docx Files
+on:
+  push:
+    paths:
+      - 'legal_docs/**'
+jobs:
+  process-docx:
+    runs-on: ubuntu-latest
     permissions:
       contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.PAT }}
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install python-docx
+      - name: Debug List files in legal_docs
+        run: |
+          echo "Files in legal_docs:"
+          ls -la legal_docs/
+      - name: Run docx cleaner
+        run: python convert_docx_to_txt.py
+      - name: Debug Check training_data.txt
+        run: |
+          echo "Checking training_data.txt:"
+          if [ -f training_data.txt ]; then
+            echo "training_data.txt exists"
+            cat training_data.txt
+          else
+            echo "training_data.txt not found"
+            exit 1
+          fi
+      - name: Debug Check Git config
+        run: |
+          echo "Git remote URL:"
+          git remote -v
+          echo "Git user:"
+          git config --get user.name || true
+          git config --get user.email || true
+      - name: Commit and push training_data.txt
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "actions@github.com"
+          git add training_data.txt
+          git commit -m "Update training_data.txt" || echo "No changes to commit"
+          git push origin main
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT }}      contents: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
