@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Legal Docx Uploader V.5</title>
+  <title>Legal Docx Uploader V.6</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -131,7 +131,7 @@
 </head>
 
 <body>
-  <h1>Legal Docx Uploader V.5</h1>
+  <h1>Legal Docx Uploader V.6</h1>
   <div class="token-container" id="tokenContainer">
     <input id="tokenInput" type="password" placeholder="Nhập GitHub Personal Access Token">
     <button id="saveTokenBtn" onclick="saveToken()">Lưu Token</button>
@@ -330,22 +330,22 @@
         const data = await response.json();
         console.log("Workflow runs:", data.workflow_runs.map(run => ({ name: run.name, created_at: run.created_at })));
         const latestRun = data.workflow_runs
-          .filter(run => run.name === "Process Docx Files" && new Date(run.created_at) >= uploadTime)
+          .filter(run => run.name === "Process Docx Files") // Thay bằng tên đúng nếu cần
           .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))[0];
         if (latestRun) {
           console.log("Latest run:", latestRun);
           if (latestRun.status === "completed" && latestRun.conclusion === "success") {
-            // Không hiển thị nút Download ở đây vì countdown đang kiểm soát
             statusEl.textContent = `Đang chờ đếm ngược hoàn tất để tải training_data.txt...`;
             uploadedCount = 0;
             selectedFiles = [];
             document.querySelectorAll(".upload-input").forEach(input => input.value = "");
           } else {
             statusEl.textContent = `Đang xử lý (${uploadedCount} file), vui lòng chờ...`;
-            setTimeout(checkWorkflowStatus, 10000); // Tăng thời gian chờ lên 10 giây
+            setTimeout(checkWorkflowStatus, 10000);
           }
         } else {
-          statusEl.textContent = "Không tìm thấy workflow mới. Đang thử lại...";
+          console.error("No matching workflow found. Available workflows:", data.workflow_runs.map(run => run.name));
+          statusEl.textContent = `Đang xử lý (${uploadedCount} file), vui lòng chờ...`;
           setTimeout(checkWorkflowStatus, 10000);
         }
       } catch (error) {
@@ -371,7 +371,7 @@
         const data = await response.json();
         if (data.sha === lastSha) {
           statusEl.textContent = "File training_data.txt chưa được cập nhật. Đang thử lại...";
-          setTimeout(downloadResult, 10000); // Thử lại sau 10 giây
+          setTimeout(downloadResult, 10000);
           return;
         }
         lastSha = data.sha;
