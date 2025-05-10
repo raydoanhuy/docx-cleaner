@@ -36,6 +36,8 @@ Hợp đồng này có hiệu lực từ ngày 10/05/2025.
 (Ký, ghi rõ họ tên)          (Ký, ghi rõ họ tên)
 Trần Thị Lan[Tên Khách Hàng]Lê Văn Minh
 
+Ray Đoàn Huy[Tên Khách Hàng].12
+
 Bà Nguyễn Thị Hằng Nga Năm
 
 Nguyễn Thị Hằng Nga[Tên Khách Hàng].1
