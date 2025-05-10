@@ -131,6 +131,40 @@ Lê Thị Cúc[Tên Khách Hàng]Phạm Văn Dũng
 
 Nguyễn Thị Hằng Nga[Tên Khách Hàng].4
 
+[Tên Khách Hàng][Tên Khách Hàng]
+Độc lập - Tự do - Hạnh phúc
+-------------------
+[Tên Khách Hàng][Tên Khách Hàng]
+Số: 005/2025/[Tên Khách Hàng]
+Hôm nay, ngày 10 tháng 05 năm 2025, tại[Tên Khách Hàng]. Cần Thơ, chúng tôi gồm:
+[Tên Khách Hàng]: [Tên Khách Hàng]
+- Địa chỉ: 345 Đường 30/4, Quận Ninh Kiều, Cần Thơ
+- Đại diện: Ông Huỳnh Văn Nam
+- Chức vụ: Giám đốc
+[Tên Khách Hàng]: [Tên Khách Hàng]
+- Địa chỉ: 678 Đường Nguyễn Trãi, Quận Ninh Kiều, Cần Thơ
+- Đại diện: Bà Võ Thị Oanh
+- Chức vụ: Giám đốc
+Hai bên thỏa thuận ký kết Hợp đồng cung cấp hàng hóa với các điều khoản sau:
+Điều 1: Hàng hóa
+- Tên hàng: Gạo thơm ST25
+- Số lượng: 10 tấn
+- Chất lượng: Đạt tiêu chuẩn xuất khẩu
+Điều 2: Giá cả và thanh toán
+- Đơn giá: 15.000[Tên Khách Hàng]/kg
+- Tổng giá trị: 150.000.000[Tên Khách Hàng]
+- Thanh toán: Trong vòng 7 ngày sau khi nhận hàng.
+Điều 3: Giao hàng
+- Thời gian: 20/05/2025
+- Địa điểm: Kho của Bên[Tên Khách Hàng]tại Cần Thơ
+Điều 4: Quyền và nghĩa vụ
+- Bên[Tên Khách Hàng]: Giao hàng đúng số lượng, chất lượng.
+- Bên[Tên Khách Hàng]: Thanh toán đúng hạn.
+Hợp đồng này có hiệu lực từ ngày 10/05/2025.
+[Tên Khách Hàng][Tên Khách Hàng][Tên Khách Hàng]
+(Ký, ghi rõ họ tên)          (Ký, ghi rõ họ tên)
+Huỳnh Văn Nam[Tên Khách Hàng]Võ Thị Oanh
+
 Nguyễn Thị Thu 2
 
 Nguyễn Thị Hằng Nga[Tên Khách Hàng].3
