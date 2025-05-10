@@ -289,3 +289,5 @@ Nguyễn Thị Hằng Nga[Tên Khách Hàng].1
 Nguyễn Thị Hằng Nga[Tên Khách Hàng].4
 
 Nguyễn Thị Hằng Nga[Tên Khách Hàng].2
+
+Ray Đoàn Huy[Tên Khách Hàng].1
