@@ -194,3 +194,5 @@ Hợp đồng này có hiệu lực từ ngày 10/05/2025.
 [Tên Khách Hàng][Tên Khách Hàng][Tên Khách Hàng]
 (Ký, ghi rõ họ tên)          (Ký, ghi rõ họ tên)
 Võ Văn Em[Tên Khách Hàng]Nguyễn Thị Hoa
+
+Nguyễn Thị Hằng Nga[Tên Khách Hàng].1
