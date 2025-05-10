@@ -232,6 +232,95 @@ Võ Văn Em[Tên Khách Hàng]Nguyễn Thị Hoa
 
 Ray Đoàn Huy[Tên Khách Hàng].8
 
+1. Investment - Valuation
+Quan điểm[Tên Khách Hàng]:
+Lý do:
+[Tên Khách Hàng]muốn áp dụng mức 9x[Tên Khách Hàng]để tăng định giá công ty, giúp công ty huy động vốn cao hơn và thể hiện giá trị doanh nghiệp lớn mạnh.
+Việc giữ mức cao hơn là chiến lược để tối ưu hóa lợi ích tài chính và giảm pha loãng cổ phần.
+Tác động tích cực:
+Tăng uy tín của[Tên Khách Hàng]trong mắt các nhà đầu tư khác.
+Bảo vệ lợi ích của các cổ đông hiện tại.
+Quan điểm[Tên Khách Hàng]:
+Lý do:
+[Tên Khách Hàng]muốn mức 8x[Tên Khách Hàng]để giảm thiểu rủi ro, đặc biệt khi[Tên Khách Hàng]trong giai đoạn đầu có thể thấp hơn kỳ vọng.
+Họ cần giá trị phù hợp với bối cảnh tài chính thị trường và dự phòng cho rủi ro giảm lợi nhuận.
+Tác động tích cực:
+Đảm bảo định giá công ty hợp lý, phù hợp với các tiêu chuẩn đầu tư của[Tên Khách Hàng].
+2. [Tên Khách Hàng]’s Consent Rights for Listing/Offerings
+Quan điểm[Tên Khách Hàng]:
+Lý do:
+[Tên Khách Hàng]muốn giảm mức free float xuống 15%-20% và[Tên Khách Hàng]xuống 11% để đảm bảo tính linh hoạt trong huy động vốn sau[Tên Khách Hàng].
+Họ cần bảo vệ khả năng kiểm soát và giữ lại cổ phần chiến lược trong công ty.
+Tác động tích cực:
+Giảm áp lực tài chính và tăng cơ hội mở rộng vốn trong tương lai.
+Quan điểm[Tên Khách Hàng]:
+Lý do:
+[Tên Khách Hàng]yêu cầu free float 25% và[Tên Khách Hàng]12%-14% để đảm bảo khả năng thoái vốn nhanh chóng và lợi nhuận tối ưu.
+Họ cần mức free float lớn để tăng tính thanh khoản cổ phiếu sau[Tên Khách Hàng].
+Tác động tích cực:
+Bảo vệ quyền lợi đầu tư và đảm bảo khả năng sinh lời.
+3. Covenants liên quan đến Dai Dung Vung Tau
+Quan điểm[Tên Khách Hàng]:
+Lý do:
+[Tên Khách Hàng]muốn giữ mức giá mua 15,000[Tên Khách Hàng]/cổ phần vì đây là mức đã được thỏa thuận trong hợp đồng cổ đông ([Tên Khách Hàng]).
+Thay đổi giá sẽ ảnh hưởng đến uy tín của công ty và có thể gây ra tranh chấp với các cổ đông khác.
+Tác động tích cực:
+Duy trì tính minh bạch và nhất quán trong các giao dịch cổ phần.
+Quan điểm[Tên Khách Hàng]:
+Lý do:
+[Tên Khách Hàng]không muốn trả giá premium vì cổ phần này không mang lại giá trị gia tăng lớn và họ cần bảo vệ ngân sách đầu tư.
+Mức giá thấp hơn sẽ giảm rủi ro tài chính nếu công ty không đạt kỳ vọng lợi nhuận.
+Tác động tích cực:
+Đảm bảo tối ưu hóa chi phí đầu tư.
+4. Redemption Rights
+Quan điểm[Tên Khách Hàng]:
+Lý do:
+[Tên Khách Hàng]muốn giữ milestone năm 6 thay vì năm 5 để có thêm thời gian chuẩn bị cho[Tên Khách Hàng]hoặc Trade Sale.
+Họ đề xuất loại bỏ Qualified Liquidation Event ([Tên Khách Hàng]) để giảm áp lực tài chính từ các sự kiện redemption.
+Tác động tích cực:
+Tăng tính linh hoạt cho công ty và giảm rủi ro redemption sớm.
+Quan điểm[Tên Khách Hàng]:
+Lý do:
+[Tên Khách Hàng]muốn milestone năm 5 để đảm bảo khả năng thoái vốn sớm nếu công ty không đạt các mục tiêu.
+Giữ[Tên Khách Hàng]để tăng số lượng lựa chọn cho sự kiện thoái vốn.
+Tác động tích cực:
+Đảm bảo quyền lợi thoái vốn trong mọi kịch bản.
+5. Accelerated Redemption Right
+Quan điểm[Tên Khách Hàng]:
+Lý do:
+[Tên Khách Hàng]muốn giảm mức phạt xuống 1%-2% và kéo dài thời gian remedy lên 90 ngày để giảm áp lực tài chính.
+Họ cần thêm thời gian để xử lý vấn đề trong trường hợp xảy ra vi phạm.
+Tác động tích cực:
+Giảm gánh nặng tài chính và tạo cơ hội khắc phục lỗi.
+Quan điểm[Tên Khách Hàng]:
+Lý do:
+[Tên Khách Hàng]yêu cầu mức phạt 3%-5% và thời gian remedy ngắn hơn để thúc đẩy công ty tuân thủ cam kết nhanh chóng.
+Họ muốn bảo vệ quyền lợi nếu có sự cố xảy ra.
+Tác động tích cực:
+Tăng tính ràng buộc và giảm thời gian bị động trong các tình huống xấu.
+6. Governing Law/Dispute Resolution
+Quan điểm[Tên Khách Hàng]:
+Lý do:
+[Tên Khách Hàng]muốn áp dụng luật Việt Nam vì công ty hoạt động chủ yếu tại Việt Nam, giúp đơn giản hóa xử lý pháp lý.
+Tác động tích cực:
+Giảm chi phí pháp lý và dễ dàng tham gia tranh tụng hơn.
+Quan điểm[Tên Khách Hàng]:
+Lý do:
+[Tên Khách Hàng]muốn áp dụng luật Anh/New York và trọng tài[Tên Khách Hàng]để bảo vệ lợi ích quốc tế và đảm bảo tính minh bạch.
+Tác động tích cực:
+Đảm bảo tiêu chuẩn pháp lý cao, phù hợp với các nhà đầu tư quốc tế.
+7. Sponsors and Guarantors
+Quan điểm[Tên Khách Hàng]:
+Lý do:
+[Tên Khách Hàng]muốn thay bảo lãnh cá nhân của ông Dũng bằng thế chấp tài sản để giảm rủi ro pháp lý cá nhân.
+Tác động tích cực:
+Bảo vệ tài sản cá nhân và giảm áp lực lên cổ đông chính.
+Quan điểm[Tên Khách Hàng]:
+Lý do:
+[Tên Khách Hàng]yêu cầu bảo lãnh cá nhân vì Nam Phát Long có năng lực tài chính hạn chế, cần thêm sự đảm bảo.
+Tác động tích cực:
+Tăng cường khả năng thu hồi vốn nếu có rủi ro xảy ra.
+
 [Tên Khách Hàng][Tên Khách Hàng]
 Độc lập - Tự do - Hạnh phúc
 -------------------
