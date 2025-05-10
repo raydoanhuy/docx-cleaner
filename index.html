@@ -159,15 +159,15 @@
     const REPO = "raydoanhuy/docx-cleaner";
     let GITHUB_TOKEN = "";
     let uploadedCount = 0;
-    let selectedFiles = [];
+    let selectedFiles = [null, null, null, null, null]; // Khởi tạo với 5 phần tử
 
     // Kiểm tra token khi trang tải
     document.addEventListener('DOMContentLoaded', () => {
       const token = sessionStorage.getItem('github_token');
       if (token) {
-        validateToken(token); // Kiểm tra token đã lưu
+        validateToken(token);
       } else {
-        showTokenSection(); // Hiển thị ô token
+        showTokenSection();
       }
     });
 
@@ -186,7 +186,7 @@
       document.getElementById('status').textContent = 'Chọn file và nhấn OK để upload.';
     }
 
-    // Hiển thị lỗi
+    // Hiển thị trạng thái
     function showStatus(message, isError = false) {
       const statusEl = document.getElementById('status');
       statusEl.textContent = message;
@@ -228,27 +228,31 @@
       }
     }
 
+    // Xử lý chọn file
     document.querySelectorAll(".upload-input").forEach((input, index) => {
       input.addEventListener("change", () => {
         const file = input.files[0];
+        console.log(`Input ${index + 1}:`, file); // Debug
         if (file && file.name.toLowerCase().endswith(".docx")) {
           selectedFiles[index] = file;
           showStatus(`Đã chọn file ${file.name} cho Upload ${index + 1}.`);
         } else {
-          showStatus(`Upload ${index + 1}: Vui lòng chọn file .docx!`, true);
           selectedFiles[index] = null;
+          showStatus(`Upload ${index + 1}: Vui lòng chọn file .docx!`, true);
         }
+        console.log("selectedFiles:", selectedFiles); // Debug
       });
     });
 
+    // Upload file
     async function uploadFiles() {
-      const statusEl = document.getElementById("status");
       if (!GITHUB_TOKEN) {
         showStatus("Vui lòng lưu token trước khi upload!", true);
         return;
       }
 
       const validFiles = selectedFiles.filter(file => file !== null);
+      console.log("validFiles:", validFiles); // Debug
       if (validFiles.length === 0) {
         showStatus("Vui lòng chọn ít nhất một file .docx!", true);
         return;
@@ -258,7 +262,7 @@
       try {
         for (let i = 0; i < validFiles.length; i++) {
           const file = validFiles[i];
-          const fileName = file.name; // Giữ tên file gốc
+          const fileName = file.name;
           const reader = new FileReader();
           await new Promise((resolve) => {
             reader.onload = async function (e) {
@@ -317,7 +321,7 @@
             document.getElementById("downloadBtn").style.display = "block";
             showStatus("Xử lý hoàn tất! Nhấn Download để tải training_data.txt.");
             uploadedCount = 0;
-            selectedFiles = [];
+            selectedFiles = [null, null, null, null, null]; // Reset
             document.querySelectorAll(".upload-input").forEach(input => input.value = "");
           } else {
             showStatus(`Đang xử lý (${uploadedCount} file), vui lòng chờ...`);
@@ -348,7 +352,7 @@
           throw new Error(`Không tải được training_data.txt: ${errorData.message || response.statusText}`);
         }
         const data = await response.json();
-        const content = atob(data.content); // Giải mã base64
+        const content = atob(data.content);
         const blob = new Blob([content], { type: "text/plain;charset=utf-8" });
         const url = window.URL.createObjectURL(blob);
         const a = document.createElement("a");
