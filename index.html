@@ -15,126 +15,113 @@
       align-items: center;
       color: #5e564f;
     }
-h1 {
-  font-size: 36px;
-  font-weight: 600;
-  margin-bottom: 20px;
-}
-
-.upload-container {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  max-width: 600px;
-  width: 100%;
-  align-items: center;
-}
-
-.upload-btn {
-  background: #8b4513;
-  color: white;
-  border: none;
-  padding: 12px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  text-align: center;
-  transition: background 0.3s;
-  width: 100%;
-  max-width: 200px;
-}
-
-.upload-btn:hover {
-  background: #a0522d;
-}
-
-.upload-input {
-  display: none;
-}
-
-#okBtn {
-  background: #5e564f;
-  color: white;
-  border: none;
-  padding: 12px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  margin-top: 15px;
-  transition: background 0.3s;
-  width: 100%;
-  max-width: 200px;
-}
-
-#okBtn:hover {
-  background: #736963;
-}
-
-#downloadBtn {
-  display: none;
-  background: #5e564f;
-  color: white;
-  border: none;
-  padding: 12px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  margin-top: 20px;
-  transition: background 0.3s;
-  width: 100%;
-  max-width: 200px;
-}
-
-#downloadBtn:hover {
-  background: #736963;
-}
-
-#status {
-  margin-top: 10px;
-  font-size: 14px;
-  color: #5e564f;
-  text-align: center;
-  min-height: 20px;
-  max-width: 600px;
-  word-wrap: break-word;
-}
-
-.token-container {
-  margin-bottom: 20px;
-  width: 100%;
-  max-width: 600px;
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
-
-#tokenInput {
-  flex: 1;
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  font-size: 14px;
-}
-
-#saveTokenBtn {
-  background: #5e564f;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 14px;
-}
-
-#saveTokenBtn:hover {
-  background: #736963;
-}
-
-  </style></head>
+    h1 {
+      font-size: 36px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+    .upload-container {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 600px;
+      width: 100%;
+      align-items: center;
+    }
+    .upload-btn {
+      background: #8b4513;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      text-align: center;
+      transition: background 0.3s;
+      width: 100%;
+      max-width: 200px;
+    }
+    .upload-btn:hover {
+      background: #a0522d;
+    }
+    .upload-input {
+      display: none;
+    }
+    #okBtn {
+      background: #5e564f;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 15px;
+      transition: background 0.3s;
+      width: 100%;
+      max-width: 200px;
+    }
+    #okBtn:hover {
+      background: #736963;
+    }
+    #downloadBtn {
+      display: none;
+      background: #5e564f;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 20px;
+      transition: background 0.3s;
+      width: 100%;
+      max-width: 200px;
+    }
+    #downloadBtn:hover {
+      background: #736963;
+    }
+    #status {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #5e564f;
+      text-align: center;
+      min-height: 20px;
+      max-width: 600px;
+      word-wrap: break-word;
+    }
+    .token-container {
+      margin-bottom: 20px;
+      width: 100%;
+      max-width: 600px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    #tokenInput {
+      flex: 1;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+    #saveTokenBtn {
+      background: #5e564f;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    #saveTokenBtn:hover {
+      background: #736963;
+    }
+  </style>
+</head>
 
 <body>
   <h1>Legal Docx Uploader</h1>
-  <div class="token-container">
+  <div class="token-container" id="tokenContainer">
     <input id="tokenInput" type="password" placeholder="Nhập GitHub Personal Access Token">
     <button id="saveTokenBtn" onclick="saveToken()">Lưu Token</button>
   </div>
@@ -155,27 +142,70 @@ h1 {
   <button id="downloadBtn" onclick="downloadResult()">Download training_data.txt</button>
 
   <script>
-    const REPO = "raydoanhuy/docx-cleaner"; // Xác nhận username/repo
-    let GITHUB_TOKEN = localStorage.getItem("github_token") || "";
+    const REPO = "raydoanhuy/docx-cleaner";
+    let GITHUB_TOKEN = sessionStorage.getItem("github_token") || "";
     let uploadedCount = 0;
     let selectedFiles = [];
 
-    function saveToken() {
+    async function saveToken() {
       const tokenInput = document.getElementById("tokenInput").value.trim();
       const statusEl = document.getElementById("status");
+      const tokenContainer = document.getElementById("tokenContainer");
+      const uploadContainer = document.getElementById("uploadContainer");
+
       if (!tokenInput) {
         statusEl.textContent = "Vui lòng nhập token!";
         return;
       }
-      GITHUB_TOKEN = tokenInput;
-      localStorage.setItem("github_token", tokenInput);
-      document.getElementById("uploadContainer").style.display = "block";
-      document.getElementById("tokenInput").value = "";
-      statusEl.textContent = "Token đã lưu! Chọn file và nhấn OK để upload.";
+
+      try {
+        const response = await fetch("https://api.github.com/user", {
+          headers: {
+            "Authorization": `Bearer ${tokenInput}`,
+            "Accept": "application/vnd.github.v3+json"
+          }
+        });
+
+        if (response.ok) {
+          GITHUB_TOKEN = tokenInput;
+          sessionStorage.setItem("github_token", tokenInput);
+          statusEl.textContent = "Bạn đã nhập đúng token!";
+          tokenContainer.style.display = "none";
+          uploadContainer.style.display = "block";
+          document.getElementById("tokenInput").value = "";
+        } else {
+          const errorData = await response.json();
+          statusEl.textContent = `Token không hợp lệ, vui lòng nhập lại! (${errorData.message || response.statusText})`;
+        }
+      } catch (error) {
+        statusEl.textContent = `Lỗi kiểm tra token: ${error.message}. Vui lòng thử lại!`;
+      }
     }
 
     if (GITHUB_TOKEN) {
-      document.getElementById("uploadContainer").style.display = "block";
+      // Kiểm tra token khi tải trang
+      fetch("https://api.github.com/user", {
+        headers: {
+          "Authorization": `Bearer ${GITHUB_TOKEN}`,
+          "Accept": "application/vnd.github.v3+json"
+        }
+      })
+        .then(response => {
+          if (response.ok) {
+            document.getElementById("tokenContainer").style.display = "none";
+            document.getElementById("uploadContainer").style.display = "block";
+            document.getElementById("status").textContent = "Bạn đã nhập đúng token!";
+          } else {
+            sessionStorage.removeItem("github_token");
+            GITHUB_TOKEN = "";
+            document.getElementById("status").textContent = "Vui lòng nhập token!";
+          }
+        })
+        .catch(error => {
+          sessionStorage.removeItem("github_token");
+          GITHUB_TOKEN = "";
+          document.getElementById("status").textContent = "Vui lòng nhập token!";
+        });
     }
 
     document.querySelectorAll(".upload-input").forEach((input, index) => {
@@ -297,8 +327,7 @@ h1 {
         });
         if (!response.ok) {
           const errorData = await response.json();
-          throw new Error(`Không tải được training_data.txt: ${errorData.message ||
- response.statusText}`);
+          throw new Error(`Không tải được training_data.txt: ${errorData.message || response.statusText}`);
         }
         const data = await response.json();
         // Giải mã base64 thành chuỗi Unicode chính xác
@@ -321,6 +350,4 @@ h1 {
     }
   </script>
 </body>
-
 </html>
-
