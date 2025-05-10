@@ -120,7 +120,7 @@
 </head>
 
 <body>
-  <h1>Legal Docx Uploader V.3.0</h1>
+  <h1>Legal Docx Uploader V.4</h1>
   <div class="token-container" id="tokenContainer">
     <input id="tokenInput" type="password" placeholder="Nhập GitHub Personal Access Token">
     <button id="saveTokenBtn" onclick="saveToken()">Lưu Token</button>
@@ -146,7 +146,6 @@
     let GITHUB_TOKEN = sessionStorage.getItem("github_token") || "";
     let uploadedCount = 0;
     let selectedFiles = [];
-    let uploadTime = null;
     let lastSha = null;
 
     async function saveToken() {
@@ -236,7 +235,6 @@
         return;
       }
 
-      uploadTime = new Date(); // Lưu thời gian upload
       statusEl.textContent = `Đang upload ${validFiles.length} file...`;
       try {
         for (let i = 0; i < validFiles.length; i++) {
@@ -295,10 +293,12 @@
           throw new Error(`Kiểm tra workflow thất bại: ${errorData.message || response.statusText}`);
         }
         const data = await response.json();
+        console.log("Workflow runs:", data.workflow_runs.map(run => ({ name: run.name, created_at: run.created_at }))); // Debug danh sách workflow
         const latestRun = data.workflow_runs
-          .filter(run => run.name === "Process Docx Files" && new Date(run.created_at) >= uploadTime)
-          .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))[0];
+          .filter(run => run.name === "Process Docx Files")
+          .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))[0]; // Lấy workflow mới nhất
         if (latestRun) {
+          console.log("Latest run:", latestRun); // Debug thông tin workflow
           if (latestRun.status === "completed" && latestRun.conclusion === "success") {
             document.getElementById("downloadBtn").style.display = "block";
             statusEl.textContent = "Xử lý hoàn tất! Nhấn Download để tải training_data.txt.";
@@ -307,11 +307,12 @@
             document.querySelectorAll(".upload-input").forEach(input => input.value = "");
           } else {
             statusEl.textContent = `Đang xử lý (${uploadedCount} file), vui lòng chờ...`;
-            setTimeout(checkWorkflowStatus, 10000); // Tăng thời gian chờ lên 10 giây
+            setTimeout(checkWorkflowStatus, 5000);
           }
         } else {
-          statusEl.textContent = "Không tìm thấy workflow. Đang thử lại...";
-          setTimeout(checkWorkflowStatus, 10000);
+          statusEl.textContent = "Không tìm thấy workflow 'Process Docx Files'. Vui lòng kiểm tra tên workflow!";
+          console.error("No matching workflow found. Available workflows:", data.workflow_runs.map(run => run.name));
+          setTimeout(checkWorkflowStatus, 5000);
         }
       } catch (error) {
         console.error("Workflow check error:", error.message);
